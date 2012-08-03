@@ -137,7 +137,7 @@ module RailsAdmin
       end
 
       def get_conditions_hash(model_config, query, filters)
-        @like_operator =  "ILIKE" if ::ActiveRecord::Base.configurations[Rails.env]['adapter'] == "postgresql"
+        @like_operator =  "ILIKE" if Rails.configuration.database_configuration[Rails.env]['adapter'] == "postgresql"
         @like_operator ||= "LIKE"
 
         query_statements = []
